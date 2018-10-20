@@ -27,8 +27,12 @@ public class Practice06Test {
 	public boolean isPalindrome(String item) {
 		clearData();
 		for (int i = 0; i < item.length(); i++) {
-			stack.push(item.substring(i, i+1));
-			queue.enqueue(item.substring(i, i+1));
+			String nextItem = item.substring(i, i + 1).toLowerCase();
+			if (Character.isLetter(nextItem.charAt(0))) {
+				stack.push(nextItem);
+				queue.enqueue(nextItem);
+			}
+
 		}
 
 		while (! stack.empty() && ! queue.empty()) {
